@@ -1,20 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import Layout from "../../layouts/main/Layout";
 
 // Context
 import PokedexContext from "../../contexts/PokedexContext";
+import Filter from "../../layouts/pokedex/Filter";
+import PokedexList from "../../layouts/pokedex/PokedexList";
 
 const Pokedex = () => {
-    const [name, setName] = useState("kanto");
-    const handleChange = (value) => setName(value);
-    
+  const [name, setName] = useState("kanto");
+  const handleChange = (value) => setName(value);
+
   return (
     <Layout>
-        <PokedexContext.Provider value={{name, handleChange}}>
-            <h1>Pokedex</h1>
-        </PokedexContext.Provider>
+      <PokedexContext.Provider value={{ name, handleChange }}>
+        <div className="flex flex-col space-y-3">
+          <Filter />
+          <PokedexList />
+        </div>
+      </PokedexContext.Provider>
     </Layout>
-  )
-}
+  );
+};
 
-export default Pokedex
+export default Pokedex;
