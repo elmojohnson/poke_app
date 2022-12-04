@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
     <NavContext.Provider value={{isOpen, navItems, handleOpen}}>
       <div className="bg-base h-screen relative">
         <Navbar />
-        <Container>{children}</Container>
+        <div className="py-3"><Container>{children}</Container></div>
         <Drawer />
       </div>
     </NavContext.Provider>
