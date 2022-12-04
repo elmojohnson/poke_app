@@ -1,6 +1,6 @@
 // Context
 import { useContext } from "react";
-import DrawerContext from "../../contexts/DrawerContext";
+import DrawerContext from "../../contexts/NavContext";
 
 // Components
 import NavItem from "../../components/navigation/NavItem";

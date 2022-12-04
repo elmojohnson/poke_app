@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import DrawerContext from "../../contexts/DrawerContext";
+import NavContext from "../../contexts/NavContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { MdClose } from "react-icons/md";
 import NavItem from "../../components/navigation/NavItem";
 
 const Drawer = () => {
-  const { isOpen, handleOpen, navItems } = useContext(DrawerContext);
+  const { isOpen, handleOpen, navItems } = useContext(NavContext);
 
   return (
     <AnimatePresence>

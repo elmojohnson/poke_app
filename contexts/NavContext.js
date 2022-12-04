@@ -1,9 +1,9 @@
 import { createContext } from "react";
 
-const DrawerContext = createContext({
+const NavContext = createContext({
     isOpen: false,
     navItems: [],
     handleOpen: () => {},
 })
 
-export default DrawerContext;
+export default NavContext;

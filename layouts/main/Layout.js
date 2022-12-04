@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navbar from "./Navbar";
 import Container from "../../components/utils/Container";
 
-import DrawerContext from "../../contexts/DrawerContext";
+import NavContext from "../../contexts/NavContext";
 import Drawer from "./Drawer";
 
 const Layout = ({ children }) => {
@@ -29,13 +29,13 @@ const Layout = ({ children }) => {
   const handleOpen = () => setOpen(!isOpen);
 
   return (
-    <DrawerContext.Provider value={{isOpen, navItems, handleOpen}}>
+    <NavContext.Provider value={{isOpen, navItems, handleOpen}}>
       <div className="bg-base h-screen relative">
         <Navbar />
         <Container>{children}</Container>
         <Drawer />
       </div>
-    </DrawerContext.Provider>
+    </NavContext.Provider>
   );
 };
 
