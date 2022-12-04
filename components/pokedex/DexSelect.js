@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import PokedexContext from "../../contexts/PokedexContext";
-import usePokedexList from "../../hooks/usePokedexList";
+import usePokedexList from "../../hooks/pokedex/usePokedexList";
 
 const DexSelect = () => {
   const { name, handleChange } = useContext(PokedexContext);

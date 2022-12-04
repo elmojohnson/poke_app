@@ -10,13 +10,13 @@ const Drawer = () => {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="h-screen w-full absolute top-0 left-0 md:hidden flex">
+        <div className="h-screen w-full absolute top-0 left-0 md:hidden z-20">
           <motion.div
             initial={{ x: -500 }}
             animate={{ x: 0 }}
             exit={{ x: -500 }}
             transition={{ type: "keyframes" }}
-            className="w-2/3 bg-white shadow p-4 z-10 relative"
+            className="w-2/3 bg-white z-10 shadow p-4 relative h-screen"
           >
             <MdClose
               className="absolute right-4 top-4 hover:cursor-pointer"

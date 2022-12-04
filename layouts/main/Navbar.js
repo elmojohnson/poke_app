@@ -14,7 +14,7 @@ const Navbar = () => {
     const {navItems, handleOpen} = useContext(DrawerContext)
     
   return (
-    <div className="bg-white shadow py-2 sticky top-0 z-50">
+    <div className="bg-white shadow py-2 sticky top-0 z-10">
       <Container>
         <div className="flex items-center justify-between">
           <button className="bg-base p-2 rounded md:hidden block hover:bg-neutral-200" onClick={handleOpen}>

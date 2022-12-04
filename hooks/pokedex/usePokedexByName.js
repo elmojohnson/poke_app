@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import PokedexContext from "../contexts/PokedexContext";
-import PokeApi from "../lib/PokeApi";
+import PokedexContext from "../../contexts/PokedexContext";
+import PokeApi from "../../lib/PokeApi";
 
 const usePokedexByName = () => {
   const { name } = useContext(PokedexContext);

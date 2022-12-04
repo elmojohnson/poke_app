@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
 
   return (
     <NavContext.Provider value={{isOpen, navItems, handleOpen}}>
-      <div className="bg-base h-screen relative overflow-y-scroll">
+      <div className={`bg-base h-screen relative ${isOpen ? "overflow-y-hidden" : "overflow-y-scroll"} overflow-x-hidden`}>
         <Navbar />
         <div className="py-3"><Container>{children}</Container></div>
         <Drawer />

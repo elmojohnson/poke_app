@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import PokeApi from "../lib/PokeApi";
+import PokeApi from "../../lib/PokeApi";
 
 const usePokedexList = () => {
     const [pokedex, setPokedex] = useState([]);
