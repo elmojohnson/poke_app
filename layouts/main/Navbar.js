@@ -1,33 +1,25 @@
-import React from "react";
+// Context
+import { useContext } from "react";
+import DrawerContext from "../../contexts/DrawerContext";
+
+// Components
 import NavItem from "../../components/navigation/NavItem";
 import Container from "../../components/utils/Container";
+
+// Lib
 import { CgPokemon } from "react-icons/cg";
 import { BiMenuAltLeft } from "react-icons/bi";
 
 const Navbar = () => {
-  const navItems = [
-    {
-      label: "Home",
-      href: "/",
-    },
-    {
-      label: "Pokedex",
-      href: "/pokedex",
-    },
-    {
-      label: "Types",
-      href: "/types",
-    },
-    {
-      label: "Items",
-      href: "/items",
-    },
-  ];
+    const {navItems, handleOpen} = useContext(DrawerContext)
+    
   return (
     <div className="bg-white shadow py-2">
       <Container>
-        <div className="flex items-center md:space-x-7 space-x-2">
-            <button className="bg-base p-2 rounded md:hidden flex hover:bg-neutral-200"><BiMenuAltLeft /></button>
+        <div className="flex items-center justify-between">
+          <button className="bg-base p-2 rounded md:hidden block hover:bg-neutral-200" onClick={handleOpen}>
+            <BiMenuAltLeft />
+          </button>
           <CgPokemon className="font-bold text-4xl" />
           <div className="md:flex hidden items-center space-x-4">
             {navItems.map((item) => {
