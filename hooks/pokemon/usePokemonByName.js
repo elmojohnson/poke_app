@@ -1,17 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
 import PokeApi from "../../lib/PokeApi";
 
 const usePokemonByName = (name) => {
-    const [sprite, setSprite] = useState("");
+  const [pokemon, setPokemon] = useState({
+    defaultSprite: "",
+    officialArtworkSprite: "",
+    types: [],
+    ht: 0,
+    wt: 0,
+  });
 
-    useEffect(() => {
-        (async () => {
-            const pokemon = await PokeApi.getPokemonByName(name);
-            setSprite(pokemon.sprites.front_default)
-        })()
-    }, [])
+  useEffect(() => {
+    (async () => {
+      const result = await PokeApi.getPokemonByName(name);
+      setPokemon({
+        defaultSprite: result.sprites.front_default,
+      });
+    })();
+  }, []);
 
-    return {sprite}
-}
+  return { pokemon };
+};
 
-export default usePokemonByName
+export default usePokemonByName;

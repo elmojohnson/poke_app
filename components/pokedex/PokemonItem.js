@@ -3,19 +3,19 @@ import usePokemonByName from "../../hooks/pokemon/usePokemonByName";
 import { AnimatePresence, motion } from "framer-motion";
 
 const PokemonItem = ({ entry_number, name }) => {
-  const { sprite } = usePokemonByName(name);
+  const { pokemon } = usePokemonByName(name);
   return (
     <motion.div
     initial={{opacity: 0}}
     whileInView={{opacity: 1}}
     className="bg-white shadow rounded overflow-hidden h-20 flex items-center">
       <AnimatePresence>
-        {sprite ? (
+        {pokemon.defaultSprite ? (
           <motion.img
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{delay: 0.5}}
-            src={sprite}
+            src={pokemon.defaultSprite}
             alt={name}
             className="h-20 w-20"
           />
