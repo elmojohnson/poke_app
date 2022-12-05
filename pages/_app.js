@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import { motion } from "framer-motion";
+import NextNProgress from 'nextjs-progressbar';
 
 function MyApp({ Component, pageProps, router }) {
   return (
@@ -16,6 +17,7 @@ function MyApp({ Component, pageProps, router }) {
         },
       }}
     >
+      <NextNProgress height={5} color="#dc2626" options={{showSpinner: false}} />
       <Component {...pageProps} />
     </motion.div>
   );
