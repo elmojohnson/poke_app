@@ -23,14 +23,14 @@ const PokemonItem = ({ entry_number, name }) => {
             className="h-20 w-20"
           />
         ) : (
-          <div className="h-20 w-20 p-4 flex items-center justify-center">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="bg-neutral-200 rounded-full h-12 w-12 animate-pulse"
-            />
-          </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="h-20 w-20 p-4 flex items-center justify-center"
+          >
+            <div className="bg-neutral-200 rounded-full h-12 w-12 animate-pulse" />
+          </motion.div>
         )}
       </AnimatePresence>
       <div className="leading-none flex flex-col space-y-0 px-3 w-full mr-3">
