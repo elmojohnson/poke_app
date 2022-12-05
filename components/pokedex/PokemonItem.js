@@ -1,9 +1,19 @@
-import React from "react";
-import usePokemonByName from "../../hooks/pokemon/usePokemonByName";
+import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import PokeApi from "../../lib/PokeApi";
 
 const PokemonItem = ({ entry_number, name }) => {
-  const { pokemon } = usePokemonByName(name);
+  const [sprite, setSprite] = useState("");
+
+  // Get pokemon by species
+  useEffect(() => {
+    (async () => {
+      const species = await PokeApi.getPokemonSpeciesByName(name);
+      const pokemon = await PokeApi.getPokemonByName(species.id);
+      setSprite(pokemon.sprites.front_default)
+    })()
+  }, [])
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -13,24 +23,24 @@ const PokemonItem = ({ entry_number, name }) => {
       className="bg-white shadow rounded overflow-hidden h-20 flex items-center hover:cursor-pointer hover:shadow-xl"
     >
       <AnimatePresence>
-        {pokemon.defaultSprite ? (
+        {sprite ? (
           <motion.img
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            src={pokemon.defaultSprite}
+            src={sprite}
             alt={name}
-            className="h-20 w-20"
+            className="h-20 w-20 p-2"
           />
         ) : (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="h-20 w-20 p-4 flex items-center justify-center"
-          >
-            <div className="bg-neutral-200 rounded-full h-12 w-12 animate-pulse" />
-          </motion.div>
+          <div className="h-20 w-20 flex items-center justify-center">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="bg-neutral-200 rounded-full h-12 w-12 m-4 animate-pulse"
+            />
+          </div>
         )}
       </AnimatePresence>
       <div className="leading-none flex flex-col space-y-0 px-3 w-full mr-3">

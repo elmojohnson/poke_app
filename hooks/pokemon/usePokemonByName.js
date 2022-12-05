@@ -9,13 +9,16 @@ const usePokemonByName = (name) => {
     ht: 0,
     wt: 0,
   });
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
     (async () => {
+      setLoading(true);
       const result = await PokeApi.getPokemonByName(name);
       setPokemon({
         defaultSprite: result.sprites.front_default,
       });
+      setLoading(false);
     })();
   }, []);
 
