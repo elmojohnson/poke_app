@@ -3,8 +3,8 @@ import DexSelect from "../../components/pokedex/DexSelect";
 
 const Filter = () => {
   return (
-    <div className="flex items-center justify-between bg-white py-2 px-4 rounded">
-      <h5 className="font-semibold">Filter Pokedex</h5>
+    <div className="flex flex-col space-y-2">
+      <h5 className="font-semibold text-muted">Filter Pokedex</h5>
       <DexSelect />
     </div>
   );
