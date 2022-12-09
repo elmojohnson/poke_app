@@ -7,13 +7,13 @@ import Filter from "../../layouts/pokedex/Filter";
 import PokedexList from "../../layouts/pokedex/PokedexList";
 
 const Pokedex = () => {
-  const [name, setName] = useState("kanto");
+  const [name, setName] = useState("national");
   const handleChange = (value) => setName(value);
 
   return (
     <Layout>
       <PokedexContext.Provider value={{ name, handleChange }}>
-        <div className="flex flex-col space-y-3">
+        <div className="flex flex-col space-y-4">
           <Filter />
           <PokedexList />
         </div>

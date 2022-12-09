@@ -1,17 +1,17 @@
 import React, { useContext } from "react";
 import PokedexContext from "../../contexts/PokedexContext";
 import usePokedexList from "../../hooks/pokedex/usePokedexList";
-import DexRadioItem from "./DexRadioItem";
+import ChipButton from "./ChipButton";
 
 const DexSelect = () => {
   const { name, handleChange } = useContext(PokedexContext);
   const { pokedex, isLoading } = usePokedexList();
 
   return (
-    <div className="grid grid-cols-5 gap-2">
+    <div className="flex items-start space-x-4 overflow-x-scroll no-scrollbar w-full">
       {
         pokedex.map(p => {
-          return <DexRadioItem key={p} label={p} value={p} checkedValue={name} handleChange={handleChange} />
+          return <ChipButton key={p} value={p} checkedValue={name} handleChange={handleChange} />
         })
       }
     </div>
