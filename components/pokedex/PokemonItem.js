@@ -20,7 +20,7 @@ const PokemonItem = ({ entry_number, name }) => {
       whileInView={{ opacity: 1 }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 1 }}
-      className="bg-white shadow rounded overflow-hidden h-20 flex items-center hover:cursor-pointer hover:shadow-xl"
+      className="bg-white rounded overflow-hidden h-20 flex items-center hover:cursor-pointer hover:shadow-xl"
     >
       <AnimatePresence>
         {sprite ? (

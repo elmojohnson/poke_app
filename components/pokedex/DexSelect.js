@@ -7,8 +7,8 @@ const DexSelect = () => {
   const { pokedex, isLoading } = usePokedexList();
 
   return (
-    <div className="border rounded px-2 py-1">
-      <select value={name} onChange={e => handleChange(e.target.value)} className="capitalize">
+    <div className="bg-white border rounded px-2">
+      <select value={name} onChange={e => handleChange(e.target.value)} className="capitalize bg-white outline-none py-1">
         {pokedex.map((dex) => {
           return <option key={dex} value={dex} className="">{dex.split("-").join(" ")}</option>;
         })}

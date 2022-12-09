@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useRef } from "react";
 import usePokedexByName from "../../hooks/pokedex/usePokedexByName";
 import LoadingScreen from "../../components/utils/LoadingScreen";
 import PokemonItem from "../../components/pokedex/PokemonItem";
 
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 
 const PokedexList = () => {
-  const { entries, count, currentCount, loadMoreEntries, isLoading } = usePokedexByName();
+  const { entries, count, currentCount, loadMoreEntries, isLoading } =
+    usePokedexByName();
 
   if (isLoading) {
     return <LoadingScreen />;
@@ -26,15 +27,17 @@ const PokedexList = () => {
           );
         })}
       </div>
-      <div className="flex items-end justify-between py-6">
+      <div className="flex items-start justify-between py-6">
         <p className="text-sm font-semibold text-muted">
           {currentCount} / {count}
         </p>
         {currentCount >= count ? null : (
           <motion.button
-          whileHover={{scale: 1.05}}
-          whileTap={{scale: 1}}
-          className="btn-primary" onClick={loadMoreEntries}>
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 1 }}
+            className="btn-primary"
+            onClick={loadMoreEntries}
+          >
             Load more
           </motion.button>
         )}

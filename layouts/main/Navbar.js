@@ -14,10 +14,10 @@ const Navbar = () => {
     const {navItems, handleOpen} = useContext(DrawerContext)
     
   return (
-    <div className="bg-white shadow py-2 sticky top-0 z-10">
+    <div className="bg-primary shadow py-2 sticky top-0 z-10 text-white">
       <Container>
         <div className="flex items-center justify-between">
-          <button className="bg-base p-2 rounded md:hidden block hover:bg-neutral-200" onClick={handleOpen}>
+          <button className="text-2xl rounded md:hidden block hover:text-red-200" onClick={handleOpen}>
             <BiMenuAltLeft />
           </button>
           <CgPokemon className="font-bold text-4xl" />
