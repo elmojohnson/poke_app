@@ -52,20 +52,31 @@ const Pokemon = () => {
             <LoadingScreen />
           ) : (
             <motion.div className="flex md:flex-row flex-col md:space-x-3 space-x-0 md:space-y-0 space-y-8">
-              <div className="md:w-1/3 w-full flex flex-col md:items-start items-center justify-center leading-none">
-                <motion.img initial={{opacity: 0}} animate={{opacity: 1, y: [-10, 0, -10, 0]}} src={pokemon.official_sprite} className="w-80" />
-                <span className="text-muted text-xs">
-                  No. {String(pokemon.national_id).padStart(3, "0")}
-                </span>
-                <h1 className="capitalize font-bold lg:text-3xl text-4xl">
-                  {pokemon.name}
-                </h1>
-                <div className="flex items-center space-x-2 mt-2">
-                  {pokemon.types.map((t) => {
-                    return (
-                      <img key={t} src={`/types/${t}.png`} className="md:w-24 w-28" />
-                    );
-                  })}
+              <div className="md:w-1/3 w-full">
+                <div className="flex flex-col md:items-start items-center leading-none">
+                  <motion.img
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1, y: [-10, 0, -10, 0] }}
+                    src={pokemon.official_sprite}
+                    className="w-80"
+                  />
+                  <span className="text-muted text-xs">
+                    No. {String(pokemon.national_id).padStart(3, "0")}
+                  </span>
+                  <h1 className="capitalize font-bold lg:text-3xl text-4xl">
+                    {pokemon.name}
+                  </h1>
+                  <div className="flex items-center space-x-2 mt-2">
+                    {pokemon.types.map((t) => {
+                      return (
+                        <img
+                          key={t}
+                          src={`/types/${t}.png`}
+                          className="md:w-24 w-28"
+                        />
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
               <div className="flex flex-col space-y-2 md:w-2/3 w-full">
