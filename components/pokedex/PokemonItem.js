@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { animate, AnimatePresence, motion } from "framer-motion";
 import PokeApi from "../../lib/PokeApi";
 
 const PokemonItem = ({ entry_number, name }) => {
   const [sprite, setSprite] = useState("");
   const [types, setTypes] = useState([]);
+
+  const [isHover, setHover] = useState(false);
 
   // Get pokemon by species
   useEffect(() => {
@@ -22,13 +24,15 @@ const PokemonItem = ({ entry_number, name }) => {
       whileInView={{ opacity: 1 }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 1 }}
-      className="bg-white rounded overflow-hidden h-20 flex items-center hover:cursor-pointer hover:shadow-xl"
+      className="bg-white rounded overflow-visible h-20 flex items-center hover:cursor-pointer hover:shadow-xl"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
     >
       <AnimatePresence>
         {sprite ? (
           <motion.img
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            animate={{ opacity: 1, scale: isHover ? 1.4 : 1 }}
             src={sprite}
             alt={name}
             className="h-20 w-20 p-2"

@@ -29,7 +29,7 @@ const PokedexList = () => {
       </div>
       <div className="flex items-start justify-between py-6">
         <p className="text-sm font-semibold text-muted">
-          {currentCount} / {count}
+          {currentCount} / {count} Entries
         </p>
         {currentCount >= count ? null : (
           <motion.button
