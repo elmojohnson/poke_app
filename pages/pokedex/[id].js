@@ -46,37 +46,33 @@ const Pokemon = () => {
 
   return (
     <Layout>
-      <PokemonContext.Provider value={{ pokemon }}>
+      <PokemonContext.Provider value={pokemon}>
         <AnimatePresence>
           {isLoading ? (
             <LoadingScreen />
           ) : (
-            <motion.div className="flex md:flex-row flex-col md:space-x-3 space-x-0 md:space-y-0 space-y-3">
-              <div className="md:w-1/3 w-full flex flex-col items-center justify-center leading-none">
-                <motion.img initial={{opacity: 0}} animate={{opacity: 1, y: [-10, 0, -10, 0]}} src={pokemon.official_sprite} />
+            <motion.div className="flex md:flex-row flex-col md:space-x-3 space-x-0 md:space-y-0 space-y-8">
+              <div className="md:w-1/3 w-full flex flex-col md:items-start items-center justify-center leading-none">
+                <motion.img initial={{opacity: 0}} animate={{opacity: 1, y: [-10, 0, -10, 0]}} src={pokemon.official_sprite} className="w-80" />
                 <span className="text-muted text-xs">
                   No. {String(pokemon.national_id).padStart(3, "0")}
                 </span>
-                <h1 className="capitalize font-bold lg:text-3xl text-xl">
+                <h1 className="capitalize font-bold lg:text-3xl text-4xl">
                   {pokemon.name}
                 </h1>
                 <div className="flex items-center space-x-2 mt-2">
                   {pokemon.types.map((t) => {
                     return (
-                      <img key={t} src={`/types/${t}.png`} className="lg:w-28 w-20" />
+                      <img key={t} src={`/types/${t}.png`} className="md:w-24 w-28" />
                     );
                   })}
                 </div>
-                <div className="flex items-center space-x-7 mt-3 text-muted">
-                    <p>Ht: {pokemon.ht}</p>
-                    <p>Wt: {pokemon.wt}</p>
-                </div>
               </div>
               <div className="flex flex-col space-y-2 md:w-2/3 w-full">
-                <div className="flex items-center bg-neutral-200 rounded px-2 py-1 font-semibold lg:overflow-x-hidden overflow-x-scroll no-scrollbar">
+                <div className="flex items-center bg-neutral-200 rounded px-4 py-1 font-semibold lg:overflow-x-hidden overflow-x-scroll no-scrollbar">
                   {tabs.map((tab, i) => {
                     return (
-                      <button
+                      <motion.button
                         key={i}
                         className={`px-4 py-1 rounded ${
                           currentTab === i && "bg-base"
@@ -84,7 +80,7 @@ const Pokemon = () => {
                         onClick={() => setCurrentTab(i)}
                       >
                         {tab.label}
-                      </button>
+                      </motion.button>
                     );
                   })}
                 </div>
