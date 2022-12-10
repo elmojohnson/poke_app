@@ -45,9 +45,32 @@ const PokemonItem = ({ entry_number, name }) => {
         )}
       </AnimatePresence>
       <div className="leading-none flex flex-col space-y-0 px-3 w-full mr-3">
-        <span className="font-semibold text-xs text-neutral-400">
-          No. {String(entry_number).padStart(3, "0")}
-        </span>
+        <div className="flex items-center justify-between">
+          <span className="font-semibold text-xs text-neutral-400">
+            No. {String(entry_number).padStart(3, "0")}
+          </span>
+          <AnimatePresence>
+            {types.length !== 0 && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="flex items-center space-x-2"
+              >
+                {types.map((type) => {
+                  return (
+                    <img
+                    title={type.toUpperCase()}
+                      key={type}
+                      src={`/types/${type}-sm.png`}
+                      alt={type}
+                      className="h-5 w-5"
+                    />
+                  );
+                })}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
         <h1 className="font-bold text-lg capitalize">{name}</h1>
       </div>
     </motion.div>
