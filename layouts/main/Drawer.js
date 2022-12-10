@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import NavContext from "../../contexts/NavContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { MdClose } from "react-icons/md";
+import { CgPokemon } from "react-icons/cg";
 import NavItem from "../../components/navigation/NavItem";
 
 const Drawer = () => {
@@ -22,13 +23,23 @@ const Drawer = () => {
               className="absolute right-4 top-4 hover:cursor-pointer"
               onClick={handleOpen}
             />
-            <div className="flex flex-col">
-              {
-                navItems.map((item) => {
-                  return <NavItem key={item.label} label={item.label} href={item.href} />
-                })
-              }
+            <div className="flex items-center text-primary mb-8">
+              <CgPokemon className="text-4xl" />
+              <p className="text-xl font-bold ml-1">Poke App</p>
             </div>
+            <div className="flex flex-col">
+              {navItems.map((item) => {
+                return (
+                  <NavItem
+                    key={item.label}
+                    label={item.label}
+                    href={item.href}
+                  />
+                );
+              })}
+            </div>
+
+            <p className="absolute bottom-4 left-4 text-muted text-xs">Made by: Elmo Johnson</p>
           </motion.div>
           <motion.div
             initial={{ opacity: 0 }}

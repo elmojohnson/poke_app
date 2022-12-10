@@ -17,14 +17,14 @@ const Layout = ({ children }) => {
       label: "Pokedex",
       href: "/pokedex",
     },
-    {
-      label: "Types",
-      href: "/types",
-    },
-    {
-      label: "Items",
-      href: "/items",
-    },
+    // {
+    //   label: "Types",
+    //   href: "/types",
+    // },
+    // {
+    //   label: "Items",
+    //   href: "/items",
+    // },
   ];
   const handleOpen = () => setOpen(!isOpen);
 
