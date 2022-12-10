@@ -4,15 +4,17 @@ import PokeApi from "../../lib/PokeApi";
 
 const PokemonItem = ({ entry_number, name }) => {
   const [sprite, setSprite] = useState("");
+  const [types, setTypes] = useState([]);
 
   // Get pokemon by species
   useEffect(() => {
     (async () => {
       const species = await PokeApi.getPokemonSpeciesByName(name);
       const pokemon = await PokeApi.getPokemonByName(species.id);
-      setSprite(pokemon.sprites.front_default)
-    })()
-  }, [])
+      setSprite(pokemon.sprites.front_default);
+      setTypes(pokemon.types.map((t) => t.type.name));
+    })();
+  }, []);
 
   return (
     <motion.div
@@ -27,7 +29,6 @@ const PokemonItem = ({ entry_number, name }) => {
           <motion.img
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
             src={sprite}
             alt={name}
             className="h-20 w-20 p-2"
