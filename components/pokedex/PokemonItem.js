@@ -34,7 +34,11 @@ const PokemonItem = ({ entry_number, name }) => {
           {sprite ? (
             <motion.img
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1, scale: isHover ? 1.4 : 1 }}
+              animate={{
+                opacity: 1,
+                scale: isHover ? 1.8 : 1,
+                y: isHover ? [-10, 0, -10, 0, -10] : 0,
+              }}
               src={sprite}
               alt={name}
               className="h-20 w-20 p-2"
