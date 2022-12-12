@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps, router }) {
         },
       }}
     >
-      <NextNProgress height={5} color="#b91c1c" options={{showSpinner: false}} />
+      <NextNProgress height={5} options={{showSpinner: false}} />
       <Component {...pageProps} />
     </motion.div>
   );
