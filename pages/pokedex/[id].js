@@ -51,9 +51,9 @@ const Pokemon = () => {
           {isLoading ? (
             <LoadingScreen />
           ) : (
-            <motion.div className="flex md:flex-row flex-col md:space-x-3 space-x-0 md:space-y-0 space-y-8">
-              <div className="md:w-1/3 w-full">
-                <div className="flex flex-col md:items-start items-center leading-none">
+            <motion.div className="flex lg:flex-row flex-col lg:space-x-3 space-x-0 lg:space-y-0 space-y-8">
+              <div className="lg:w-1/3 w-full">
+                <div className="flex flex-col lg:items-start items-center leading-none lg:fixed">
                   <motion.img
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1, y: [-10, 0, -10, 0] }}
@@ -72,14 +72,14 @@ const Pokemon = () => {
                         <img
                           key={t}
                           src={`/types/${t}.png`}
-                          className="md:w-24 w-28"
+                          className="lg:w-24 w-28"
                         />
                       );
                     })}
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col space-y-4 md:w-2/3 w-full">
+              <div className="flex flex-col space-y-4 lg:w-2/3 w-full">
                 <div className="flex items-center bg-neutral-200 rounded px-4 py-1 font-semibold lg:overflow-x-hidden overflow-x-scroll no-scrollbar">
                   {tabs.map((tab, i) => {
                     return (

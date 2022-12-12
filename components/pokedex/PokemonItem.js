@@ -14,7 +14,7 @@ const PokemonItem = ({ entry_number, name }) => {
     (async () => {
       const species = await PokeApi.getPokemonSpeciesByName(name);
       const pokemon = await PokeApi.getPokemonByName(species.id);
-      setSprite(pokemon.sprites.front_default);
+      setSprite(pokemon.sprites.other["official-artwork"].front_default);
       setTypes(pokemon.types.map((t) => t.type.name));
     })();
   }, []);
@@ -37,7 +37,7 @@ const PokemonItem = ({ entry_number, name }) => {
               animate={{
                 opacity: 1,
                 scale: isHover ? 1.8 : 1,
-                y: isHover ? [-10, 0, -10, 0, -10] : 0,
+                y: isHover ? -10 : 0,
               }}
               src={sprite}
               alt={name}
