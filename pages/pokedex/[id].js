@@ -58,7 +58,7 @@ const Pokemon = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1, y: [-10, 0, -10, 0] }}
                     src={pokemon.official_sprite}
-                    className="w-80"
+                    className="w-80 mb-4"
                   />
                   <span className="text-muted text-xs">
                     No. {String(pokemon.national_id).padStart(3, "0")}
@@ -79,14 +79,14 @@ const Pokemon = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col space-y-2 md:w-2/3 w-full">
+              <div className="flex flex-col space-y-4 md:w-2/3 w-full">
                 <div className="flex items-center bg-neutral-200 rounded px-4 py-1 font-semibold lg:overflow-x-hidden overflow-x-scroll no-scrollbar">
                   {tabs.map((tab, i) => {
                     return (
                       <motion.button
                         key={i}
                         className={`px-4 py-1 rounded ${
-                          currentTab === i && "bg-base"
+                          currentTab === i && "bg-base shadow"
                         } outline-none`}
                         onClick={() => setCurrentTab(i)}
                       >
