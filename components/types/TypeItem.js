@@ -36,13 +36,29 @@ const TypeItem = ({ type, index }) => {
         />
       </div>
 
-      <div className="flex flex-col space-y-4 mt-3">
-        <TypeDamageList label="2X Damage From" data={doubleDmgFrom} />
-        <TypeDamageList label="2X Damage To" data={doubleDmgTo} />
-        <TypeDamageList label="Half Damage From" data={halfDmgFrom} />
-        <TypeDamageList label="Half Damage To" data={halfDmgTo} />
-        <TypeDamageList label="Immune To" data={noDmgFrom} />
-        <TypeDamageList label="Immune From" data={noDmgTo} />
+      <div className="overflow-x-scroll mt-4">
+        <table className="table-auto w-full bg-base">
+          <thead>
+            <tr>
+              <th className="p-2 border">2x Dmg From</th>
+              <th className="p-2 border">2x Dmg To</th>
+              <th className="p-2 border">1/2 Dmg From</th>
+              <th className="p-2 border">1/2 Dmg To</th>
+              <th className="p-2 border">Immune To</th>
+              <th className="p-2 border">Immune From</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <TypeDamageList data={doubleDmgFrom} />
+              <TypeDamageList data={doubleDmgTo} />
+              <TypeDamageList data={halfDmgFrom} />
+              <TypeDamageList data={halfDmgTo} />
+              <TypeDamageList data={noDmgFrom} />
+              <TypeDamageList data={noDmgTo} />
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );

@@ -1,14 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const TypeDamageList = ({ label, data }) => {
+const TypeDamageList = ({ data }) => {
   return (
-    <div className="flex justify-between">
-      <p className="font-semibold">{label}</p>
+    <td className="border p-3 align-top text-center">
       {data.length === 0 ? (
-        <p className="text-muted">None</p>
+        "None"
       ) : (
-        <div className="grid md:grid-cols-5 grid-cols-3 gap-3 w-fit">
+        <div className="flex flex-col items-center space-y-2">
           {data.map((t, i) => {
             return (
               <motion.img
@@ -17,13 +16,12 @@ const TypeDamageList = ({ label, data }) => {
                 key={i}
                 src={`/types/${t.name}.png`}
                 alt={t}
-                className="w-20"
               />
             );
           })}
         </div>
       )}
-    </div>
+    </td>
   );
 };
 
