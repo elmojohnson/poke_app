@@ -1,9 +1,10 @@
 import React from 'react'
-import Layout from '../layouts/main/Layout'
 
 const Home = () => {
   return (
-    <Layout>Home</Layout>
+    <div className="h-96 flex items-center justify-center">
+      <p>Home</p>
+    </div>
   )
 }
 
