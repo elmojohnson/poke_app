@@ -14,9 +14,11 @@ import Stats from "../../layouts/pokemon/tabs/Stats";
 import Types from "../../layouts/pokemon/tabs/Types";
 
 const Pokemon = () => {
+  const { pokemon, isLoading } = usePokemonByName();
+
   const tabs = [
     {
-      label: "About",
+      label: pokemon.name,
       component: <About />,
     },
     {
@@ -42,8 +44,6 @@ const Pokemon = () => {
   ];
   const [currentTab, setCurrentTab] = useState(0);
 
-  const { pokemon, isLoading } = usePokemonByName();
-
   return (
     <PokemonContext.Provider value={pokemon}>
       <AnimatePresence>
@@ -54,12 +54,12 @@ const Pokemon = () => {
             <div className="flex items-center border-b font-semibold lg:overflow-x-hidden overflow-x-scroll no-scrollbar">
               {tabs.map((tab, i) => {
                 return (
-                  <AnimatePresence key={i}>
+                  <AnimatePresence key={tab.label}>
                     <div
                       className="px-6 py-2 font-semibold relative hover:cursor-pointer"
                       onClick={() => setCurrentTab(i)}
                     >
-                      <p>{tab.label}</p>
+                      <p className="uppercase">{tab.label}</p>
                       {i === currentTab && (
                         <motion.div
                           layoutId="underline"
@@ -71,8 +71,9 @@ const Pokemon = () => {
                 );
               })}
             </div>
-            <AnimatePresence>
+            <AnimatePresence mode="wait">
               <motion.div
+                key={currentTab ? tabs[currentTab].label : "empty"}
                 initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -10, opacity: 0 }}
