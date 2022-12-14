@@ -51,7 +51,7 @@ const Pokemon = () => {
           <LoadingScreen />
         ) : (
           <motion.div className="flex flex-col space-y-2">
-            <div className="flex items-center border-b font-semibold lg:overflow-x-hidden overflow-x-scroll no-scrollbar">
+            <div className="flex items-center border-b font-semibold lg:overflow-x-hidden overflow-x-scroll no-scrollbar bg-base sticky top-12">
               {tabs.map((tab, i) => {
                 return (
                   <AnimatePresence key={tab.label}>
@@ -73,6 +73,7 @@ const Pokemon = () => {
             </div>
             <AnimatePresence mode="wait">
               <motion.div
+                className="py-3"
                 key={currentTab ? tabs[currentTab].label : "empty"}
                 initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
